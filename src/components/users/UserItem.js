@@ -14,20 +14,23 @@ class UserItem extends Component {
 // }
    state ={
       id: 'id',
-      login: 'mojobo',
+      login: 'JM_B',
       avatar_url:'https://avatars0.githubusercontent.com/u/66?=v4',
       html_url: 'https://github.com/tspeu'
    }
-   
+
    render() {
+      // distruction pull out in a object
+      const {login, avatar_url ,  html_url} = this.state;
+
       return (
          <div className='card text-center'>
-            <img src="{this.state.avatar_url}" alt="logo" 
+            <img src={avatar_url} alt="avatar" 
                   className="round-img"
-                  syle={{width: '60px'}}/>
-            <h3>{this.state.login}</h3>
+                  style={{width: '60px'}}/>
+            <h3>{login}</h3>
             <div>
-               <a href={this.state.html_url} className="btn btn-dark btn-sm my-1">More info...</a>
+               <a href={html_url} className="btn btn-dark btn-sm my-1">More info...</a>
             </div>
          </div>
       )
