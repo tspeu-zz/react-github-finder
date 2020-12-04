@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/layers/Navbar';
-import UserItem from './components/users/UserItem';
+import Users from './components/users/Users';
 
 // function App() {
 //   return (
@@ -17,7 +17,9 @@ class App extends Component {
     return ( 
       <div className='App'>
         <Navbar title="gitHub Finder"/>
-        <UserItem/>
+        <div className="container">
+          <Users/>
+        </div>
       </div>
     );
   }
