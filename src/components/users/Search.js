@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+
 
 export class Search extends Component {
 
    // api search/users?q=userID
    state= {
       text: ''
+   }
+
+   static propTypes = {
+      searchUsers: PropTypes.func.isRequired,
+      clearUsers: PropTypes.func.isRequired,
+      showClear: PropTypes.bool.isRequired,
    }
 
    onChange = (ev) =>this.setState({[ev.target.name]: ev.target.value});
@@ -21,6 +29,7 @@ export class Search extends Component {
 
 
    render() {
+      const {showClear, clearUsers} = this.props
       return (
          <div>
             {/* bind(this) */}
@@ -32,6 +41,11 @@ export class Search extends Component {
                <input type="submit" value="search" className="btn btn-dark btn-block"/>
             </form>
 
+            {showClear && (
+                  <button className="btn btn-light btn-block" onClick={clearUsers}>
+                     Clear
+                  </button>)
+            }
          </div>
       )
    }
