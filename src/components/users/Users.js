@@ -9,9 +9,9 @@ const Users = ({users, loading}) => {
    } else {
       return (
          <div style= {userStyle}>
-            {users.map(x => (
-               <UserItem  key={x.id} user={x} />
-               ))
+            { users.map(x => (
+               <UserItem  key={x.id} user={x} />)
+               )
             }
          </div>
       )
