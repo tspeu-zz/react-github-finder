@@ -13,6 +13,7 @@ export class Search extends Component {
       searchUsers: PropTypes.func.isRequired,
       clearUsers: PropTypes.func.isRequired,
       showClear: PropTypes.bool.isRequired,
+      setAlert: PropTypes.func.isRequired,
    }
 
    onChange = (ev) =>this.setState({[ev.target.name]: ev.target.value});
@@ -21,10 +22,14 @@ export class Search extends Component {
    onSubmit = (ev) => {
       // para evitar burbujeo
       ev.preventDefault();
-      console.log(this.state.text);
-      this.props.searchUsers(this.state.text);
-      //clear state
-      this.setState({ text: ''});
+      if(this.state.text === ''){
+         this.props.setAlert('Please enter some name', 'light');
+      } else {
+         console.log(this.state.text);
+         this.props.searchUsers(this.state.text);
+         //clear state
+         this.setState({ text: ''});
+      }
    }
 
 
