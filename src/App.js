@@ -55,7 +55,7 @@ class App extends Component {
       type : type
     }});
 
-    setTimeout(()=> this.setState({alert: null}), 5000);
+    setTimeout(()=> this.setState({alert: null}), 15000);
 
     console.log('alert');
 
@@ -68,7 +68,7 @@ class App extends Component {
         <Navbar title="gitHub Finder"/>
 
         <div className="container">
-          <Alert alert={alert}/>
+          <Alert alert={alert} icon="coffee"/>
           <Search searchUsers={this.usersSearch} clearUsers={this.usersClear}
             showClear={ users.length > 0 ? true : false}
             setAlert={this.alertSet}
