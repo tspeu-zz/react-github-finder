@@ -26,6 +26,7 @@ class App extends Component {
   state = {
     users: [],
     user: {},
+    repos: [],
     loading: false,
     alert: null
   };
@@ -50,7 +51,7 @@ class App extends Component {
   
   // get single user
   //https://api.github.com/users/tspeu
-  getUser = async (username) =>{
+getUser = async (username) =>{
     this.setState({loading: true});
     console.log('*USER >username *> ',  username)
     const _URL_USER = `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`;
@@ -61,6 +62,17 @@ class App extends Component {
 }
 
 // https://api.github.com/users/tspeu/repos
+// get user repos
+getUserRepos = async (username) =>{
+    this.setState({loading: true});
+    console.log('*USER >repos *> ',  username)
+    const _URL_USER = `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&
+    client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`;
+    const res = await axios.get(_URL_USER);
+    console.log('*USER >repos> res.data. *> ',  res.data)
+  
+    this.setState({repos: res.data, loading: false});
+}
 
 
     // clear user from state
@@ -84,7 +96,7 @@ class App extends Component {
   render() {
     // para utilizar router se debe envolver todo en el router
 
-    const {users,user, loading , alert} = this.state;
+    const {users,user, repos, loading , alert} = this.state;
 
     return ( 
       <Router>
@@ -117,6 +129,8 @@ class App extends Component {
                   <User {...props} 
                     getUser={this.getUser}
                     user={user}
+                    repos={repos}
+                    getUserRepos={this.getUserRepos}
                     loading={loading}
                   />
                 )}
