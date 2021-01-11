@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWindowClose as icon}  from '@fortawesome/free-solid-svg-icons';
+
 
 
 export class Search extends Component {
@@ -23,7 +26,7 @@ export class Search extends Component {
       // para evitar burbujeo
       ev.preventDefault();
       if(this.state.text === ''){
-         this.props.setAlert('Please enter some name', 'light');
+         this.props.setAlert('...Please enter some name', 'light');
       } else {
          console.log(this.state.text);
          this.props.searchUsers(this.state.text);
@@ -40,14 +43,20 @@ export class Search extends Component {
             {/* bind(this) */}
             <form onSubmit={this.onSubmit} className="form">
                <input type="text" name="text" placeholder="Search users..."
-               value={this.state.text} onChange={this.onChange}/>
+                  value={this.state.text} 
+                  onChange={this.onChange}
+               />
                {/* <input type="email" name="email" placeholder="ponga email..."
                value={this.state.email} onChange={this.onChange}/> */}
-               <input type="submit" value="search" className="btn btn-dark btn-block"/>
+               <input type="submit" value="search" 
+                  className="btn btn-dark btn-block"
+               />
             </form>
 
             {showClear && (
-                  <button className="btn btn-light btn-block" onClick={clearUsers}>
+                  <button className="btn btn-light btn-block" 
+                     onClick={clearUsers}>
+                        <FontAwesomeIcon icon={icon} size="1x" className='m-r'/>
                      Clear
                   </button>)
             }

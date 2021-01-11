@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
@@ -13,6 +14,14 @@ const Navbar = ({icon, title}) => {
             <FontAwesomeIcon icon={icon} className='m-r'/>
             {title}
          </h1>
+         <ul>
+            <li>
+               <Link to="/">Home</Link>
+            </li>
+            <li>
+               <Link to="/about">About</Link>
+            </li>
+         </ul>
       </nav>
    )
 }

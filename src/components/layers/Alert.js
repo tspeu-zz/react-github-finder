@@ -1,25 +1,30 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+// import { faDice } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faWindowClose}  from '@fortawesome/free-solid-svg-icons';
 
 const Alert = ({alert, icon}) => {
+
+   const clear = () => { 
+      console.log('alerta');
+
+   };
+
    return (
       alert!== null && (
-         <div className={`alert alert-${alert.type}`}>
-            <h2 className="btn-danger"
-            >
-            {/* <FontAwesomeIcon icon={icon}  className='m-r'/> */}
-            <FontAwesomeIcon icon={faCoffee} size="1x" />
-            { alert.msm}
-            </h2>
-            {/* <FontAwesomeIcon icon="coffee" size="xs" /> */}
-            {/* <i className="fas fa-icon-circle"></i> */}
-
-            {/* <span className="fa-layers fa-fw">
-               <FontAwesomeIcon icon="square" color="green" />
-               <FontAwesomeIcon icon="check" inverse transform="shrink-6" />
-            </span> */}
+         <div className={`card btn-danger alert alert-${alert.type}`}>
+               <span className="alerta btn-danger m-r">
+               <h2 className="open m-r" >
+                  <FontAwesomeIcon icon={faInfoCircle} size="1x" className='m-r'/>
+                  { alert.msm}
+               </h2>
+               <span className="close m-r" onClick={() => clear()}>
+                  <FontAwesomeIcon icon={faWindowClose} size="2x"/>
+               </span>
+               </span>
          </div>
       )
    )

@@ -382,6 +382,30 @@ table th {
   margin-right: 0.6rem;
 }
 
+.alerta{
+  display: flex;
+
+}
+
+.close{
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 32px;
+}
+.open{
+  /* display: flex; */
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+
+.close:hover{
+  cursor: pointer;
+}
+.close span{
+  width: 32px;
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .hide-sm {
