@@ -1,8 +1,8 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 // import { faDice } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { faWindowClose}  from '@fortawesome/free-solid-svg-icons';
 

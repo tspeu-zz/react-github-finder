@@ -52,13 +52,16 @@ class App extends Component {
   //https://api.github.com/users/tspeu
   getUser = async (username) =>{
     this.setState({loading: true});
-    const _URL_USER = `https://api.github.com/search/users/{username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`;
+    console.log('*USER >username *> ',  username)
+    const _URL_USER = `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`;
     const res = await axios.get(_URL_USER);
     console.log('*USER > res.data. *> ',  res.data)
   
     this.setState({user: res.data, loading: false});
-
 }
+
+// https://api.github.com/users/tspeu/repos
+
 
     // clear user from state
   usersClear = () => this.setState({ users: [], loading: false});
